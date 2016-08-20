@@ -10,6 +10,21 @@ import android.view.View;
 
 import java.util.List;
 
+
+/**
+ * todo 1 - So how does CoordinatorLayout know what to do with the floating action button? How does it know that it should move up the screen when the snack bar comes in?
+ * CoordinatorLayout makes this happen by making use of a CoordinatorLayout.Behavior implemented and declared by FloatingActionButton
+ *
+ * trong class FAB có hàm này:
+ * @CoordinatorLayout.DefaultBehavior(FloatingActionButton.Behavior.class)
+public class FloatingActionButton extends ImageView {
+...
+}
+ * nó chỉ ra rằng fab có cách hành xử được quy định trong class  CoordinatorLayout.Behavior<FloatingActionButton>,
+ * và bây giờ ta đè lên phương pháp default của nó.
+ *
+ *
+ */
 public class ShrinkBehavior extends CoordinatorLayout.Behavior<FloatingActionButton> {
 
     public ShrinkBehavior() { }
