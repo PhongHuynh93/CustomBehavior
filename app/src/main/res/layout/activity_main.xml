@@ -6,6 +6,7 @@
                                                  android:layout_height="match_parent"
                                                  tools:context=".MainActivity">
 
+    <!--todo 1 -  behavior point to custom behavior class-->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_height="wrap_content"

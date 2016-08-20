@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * todo 1 - So how does CoordinatorLayout know what to do with the floating action button? How does it know that it should move up the screen when the snack bar comes in?
+ * todo 2 - So how does CoordinatorLayout know what to do with the floating action button? How does it know that it should move up the screen when the snack bar comes in?
  * CoordinatorLayout makes this happen by making use of a CoordinatorLayout.Behavior implemented and declared by FloatingActionButton
  *
  * trong class FAB có hàm này:
@@ -33,11 +33,16 @@ public class ShrinkBehavior extends CoordinatorLayout.Behavior<FloatingActionBut
         super(context, attrs);
     }
 
+    /**TODO: 8/20/16 3 - The layoutDependsOn method is CoordinatorLayout’s way to see which views your floating action button are dependent on. In this case,
+     * if the view is a snackbar, set up a dependency by returning true.
+     * tức là nó phục thuộc vào sự thay đổi của "Snackbar"
+     */
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, FloatingActionButton child, View dependency) {
         return dependency instanceof Snackbar.SnackbarLayout;
     }
 
+    // TODO: 8/20/16 4 - when the dependnt view change (Snackbar move up), it's will call this method to do something.
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, FloatingActionButton child, View dependency) {
         float translationY = getFabTranslationYForSnackbar(parent, child);
